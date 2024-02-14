@@ -21,14 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        env:
-          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
-
-      - name: Debug Environment Variables
-        run: echo "PRODUCTION_DOMAIN: $PRODUCTION_DOMAIN"
-
+        
       - name: Build project
         run: npm run build
+        env:
+         PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       - name: Deploy to AWS S3
         uses: aws-actions/configure-aws-credentials@v1
