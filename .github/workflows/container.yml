@@ -25,7 +25,7 @@ jobs:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       - name: Debug Environment Variables
-        run: "PRODUCTION_DOMAIN: ${PRODUCTION_DOMAIN}"
+        run: echo "PRODUCTION_DOMAIN: $PRODUCTION_DOMAIN"
 
       - name: Build project
         run: npm run build
